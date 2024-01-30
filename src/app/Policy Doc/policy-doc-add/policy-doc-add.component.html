@@ -1,0 +1,23 @@
+<div class="col-sm-12 col-xl-6">
+  <div class="bg-light rounded h-100 p-4">
+      <h6 class="mb-4">หัวข้อเอกสาร</h6>
+      <form>
+          <div class="mb-3">
+              <label for="name" class="form-label">ชื่อหัวข้อ</label>
+              <input type="text" [(ngModel)]="name" name="name" class="form-control" id="name">
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="inspector_id">ผู้ตรวจสอบ</label>
+              <select class="form-control" id="inspector_id" (change)="onSelectVillage($event)">
+                <option value="" disabled selected>เลือกผู้ตรวจสอบ</option>
+                <option *ngFor="let inspector of partner" [value]="inspector.id">
+                  {{ inspector.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top: 20px;" (click)="onSubmit()">สร้าง</button>
+      </form>
+  </div>
+</div>

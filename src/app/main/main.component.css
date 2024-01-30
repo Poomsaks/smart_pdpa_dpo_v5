@@ -1,0 +1,15 @@
+.sidebar {
+  /* your existing styles for the sidebar */
+
+  /* Define initial position */
+  transform: translateX(-100%);
+  transition: transform 0.3s ease; /* Transition for smooth animation */
+}
+
+.sidebar.opened {
+  /* When the sidebar is opened, translate it back to the initial position */
+  transform: translateX(0);
+}
+.bg_E5E1DD{
+  background-color: #E5E1DD !important;
+}

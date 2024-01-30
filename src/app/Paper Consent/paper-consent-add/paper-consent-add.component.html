@@ -1,0 +1,29 @@
+<section class="">
+  <div style="background-color: rgb(255, 255, 255);">
+    <div id="editparent">
+      <div id='editControls' style='text-align:center; padding:5px;'>
+        <div class="form-floating">
+          <textarea class="form-control" [(ngModel)]="comment" placeholder="Leave a comment here" id="floatingTextarea"
+            style="height: 150px;"></textarea>
+          <label for="floatingTextarea">หมายเหตุ</label>
+          <div class="row" style="justify-content: flex-end; margin-top: 10px;">
+            <button type="submit" class="btn btn-primary" style="width: auto;"(click)="onSave()">บันทึกหมายเหตุ</button>
+          </div>
+        </div>
+      </div>
+      <!-- <div #editor contenteditable="false" style="width: 100%; height: 500px; padding: 1px;"></div> -->
+    </div>
+    <div class="button-row">
+      <div *ngFor="let row of docDetail_data">
+        <button class='btn btn_tool_menu' (click)="showSection(row['id'])">หน้าที่ {{row['detail_no']}}</button>
+      </div>
+    </div>
+
+
+    <div class="section-row">
+      <div #editor_page contenteditable="true" id="editor_page" style="width: 100%; height: 800px; padding: 1px; margin-top: 20px;">
+      </div>
+    </div>
+  </div>
+
+</section>

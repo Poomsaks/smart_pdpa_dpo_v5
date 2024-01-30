@@ -1,0 +1,120 @@
+<section class="">
+  <div style="background-color: rgb(255, 255, 255);">
+    <div id="editparent">
+      <div id='editControls' style='text-align:center; padding:5px;'>
+        <div class='btn-group'>
+          <button class='btn btn_tool_menu' (click)="performUndo()"><i class='fas fa-undo'></i></button>
+          <button class='btn btn_tool_menu' (click)="performRedo()"><i class='fas fa-redo'></i></button>
+        </div>
+        <div class='btn-group'>
+          <button class='btn btn_tool_menu' (click)="toggleBold()"><i class='fas fa-bold'></i></button>
+          <button class='btn btn_tool_menu' (click)="toggleItalic()"><i class='fas fa-italic'></i></button>
+          <button class='btn btn_tool_menu' (click)="toggleUnderline()"><i class='fas fa-underline'></i></button>
+        </div>
+        <div class='btn-group'>
+          <button class='btn btn_tool_menu' (click)="justifyLeft()"><i class='fas fa-align-left'></i></button>
+          <button class='btn btn_tool_menu' (click)="justifyCenter()"><i class='fas fa-align-center'></i></button>
+          <button class='btn btn_tool_menu' (click)="justifyRight()"><i class='fas fa-align-right'></i></button>
+          <button class='btn btn_tool_menu' (click)="justifyFull()"><i class='fas fa-align-justify'></i></button>
+        </div>
+        <div class='btn-group'>
+          <button class='btn btn_tool_menu' (click)="indent()"><i class='fas fa-indent'></i></button>
+          <button class='btn btn_tool_menu' (click)="outdent()"><i class='fas fa-outdent'></i></button>
+        </div>
+        <div class='btn-group'>
+          <button class='btn btn_tool_menu' (click)="insertUnorderedList()"><i class='fas fa-list-ul'></i></button>
+          <button class='btn btn_tool_menu' (click)="insertOrderedList()"><i class='fas fa-list-ol'></i></button>
+        </div>
+        <div class='btn-group'>
+          <button class='btn btn_tool_menu' (click)="createHeading1()">h<sup>1</sup></button>
+          <button class='btn btn_tool_menu' (click)="createHeading2()">h<sup>2</sup></button>
+          <button class='btn btn_tool_menu' (click)="createParagraph()">p</button>
+        </div>
+        <div class='btn-group'>
+          <button class='btn btn_tool_menu' (click)="createSubscript()"><i class='fas fa-subscript'></i></button>
+          <button class='btn btn_tool_menu' (click)="createSuperscript()"><i class='fas fa-superscript'></i></button>
+          <!-- <input type="color" #colorPicker>
+          <button class='btn' (click)="changeSelectionColor(colorPicker.value)">Change Text Color</button> -->
+        </div>
+        <div class='btn-group'>
+          <select class="form-control" id="water_ids" (change)="onSelectedWater($event)">
+            <option value="" disabled selected>เลือกฟอนต์</option>
+            <option *ngFor="let font of font_data" [value]="font.name">
+              {{ font.name }}
+            </option>
+          </select>
+        </div>
+        <div class="color-picker-container">
+          <!-- <div class="Grid">
+            <span class="QuickColor" *ngFor="let color of colors" [title]="color.title" [style.background-color]="color.bgColor" (click)="showColor(color.bgColor)">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          </div> -->
+          <!-- <input type="color" [(ngModel)]="selectedColor"> -->
+
+
+          <!-- <button (click)="Color_ff0000()" style="background-color: #ff0000; width: 15px; height: 15px;" ></button>
+          <button (click)="Color_00ff00()" style="background-color: #00ff00; width: 15px; height: 15px;" ></button>
+          <button (click)="Color_0000ff()" style="background-color: #0000ff; width: 15px; height: 15px;" ></button>
+          <button (click)="Color_ffffff()" style="background-color: #ffffff; width: 15px; height: 15px;" ></button> -->
+
+
+          <!-- <button class='btn' (click)="changeSelectionColor()">bg Text Color</button>
+          <button class='btn' (click)="changeSelectionColorText()">Text Color</button> -->
+        </div>
+
+        <!-- <select [(ngModel)]="selectedFont">
+          <option value="Arial">Arial</option>
+          <option value="Verdana">Verdana</option>
+          <option value="Thai Sarabun">Thai Sarabun</option>
+        </select> -->
+        <!-- <button class='btn' (click)="changeFont()">เปลี่ยนฟอนต์</button>-->
+
+        <button class='btn btn_tool_menu' (click)="createTable()">ตาราง 1X2</button>
+
+        <!-- <input type="file" (change)="insertImageFromFile($event)">
+        {{fontSize}}
+        <button class='btn' (click)="increaseFontSize()">เพิ่มขนาด font ทีละ 1</button>
+        <button class='btn' (click)="decreaseFontSize()">ลดขนาด font</button> -->
+      </div>
+      <div class="row" style="justify-content: flex-end;">
+        <button type="submit" class="btn btn-primary" style="margin-top: 20px;width: auto; margin-bottom: 20px;"
+          (click)="onSubmit()">บันทึกแบบร่าง</button>
+      </div>
+      <div class="button-row">
+        <div *ngFor="let row of docDetail_data">
+          <button class='btn btn_tool_menu' (click)="showSection(row['id'])">หน้าที่ {{row['detail_no']}}</button>
+        </div>
+        <button class='btn btn-primary' (click)="addNewSection()">เพิ่มหน้า</button>
+      </div>
+
+
+      <div class="section-row">
+        <div #editor_page contenteditable="true" id="editor_page" style="width: 100%; height: 800px; padding: 1px; margin-top: 20px;">
+        </div>
+      </div>
+
+
+      <!-- <div class="section-row">
+        <div *ngFor="let row of docDetail_data">
+          <section *ngIf="selectedSection === row['detail_no']">
+            <div [innerHTML]="sanitizeHtml(row['doc_detail'])" #editor_page id="{{row['detail_no']}}" contenteditable="true" style="width: 100%; height: 800px; padding: 1px;">
+            </div>
+          </section>
+        </div>
+      </div> -->
+
+
+
+      <!-- <div #editor contenteditable="true" style="width: 100%; height: 800px; padding: 1px;"
+        (input)="onEditorInput($event)">
+      </div> -->
+    </div>
+
+    <div class="row" style="text-align: center;margin-top: 50px;">
+      <h2>ตัวอย่างเอกสาร</h2>
+    </div>
+    <div #editor_view contenteditable="false"
+      style="width: 100%; height: 800px; margin-top: 10px; padding: 1px; border: 1px solid black;">
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,68 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid pt-4 px-4">
+  <div class="row" style="justify-content: flex-end;">
+    <button type="submit" class="btn btn-primary py-3 mb-4" style="margin-top: 15px; width: auto;"
+      (click)="add_doc()">เพิ่มหัวข้อเอกสาร</button>
+  </div>
+  <div class="row">
+    <div class="col-4" *ngFor="let doc of document" style="margin-top: 20px;">
+      <div class="h-100 p-4" style="background-color: #E5E1DD; border-radius: 10px;">
+        <div (click)="goToDoc_01( doc['id'])">
+          <h5 class="mb-4">{{ doc['name'] }}</h5>
+          <hr>
+          <div class="mb-3">
+            <label class="form-label">วันที่สร้าง :</label>
+            <label class="form-label">&nbsp;{{ doc['create_date'] }}</label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">ผู้สร้าง :</label>
+            <label class="form-label">&nbsp;{{ doc['name_create_name'] }}</label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">สถานะ :</label>
+            <label class="form-label" *ngIf="doc['status'] === true">&nbsp;ใช้งาน</label>
+            <label class="form-label" *ngIf="doc['status'] === false">&nbsp;ไม่ใช้งาน</label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">ผู้ตรวจสอบ:</label>
+            <label class="form-label">&nbsp;{{ doc['inspector_name'] }}</label>
+          </div>
+        </div>
+
+        <div class="row" style="justify-content: flex-end;">
+          <button type="submit" class="btn btn-primary" style="width: auto;"
+            (click)="onSubmit(doc['id'])">ส่งคำร้อง</button>
+        </div>
+        <div class="row no-print">
+          <div class="col-12">
+            <a (click)="goToReport(doc['id'])" rel="noopener" target="_blank" class="btn btn-default">
+              <i class="fas fa-print"></i> Print
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

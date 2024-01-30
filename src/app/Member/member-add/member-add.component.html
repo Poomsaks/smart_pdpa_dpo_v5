@@ -1,0 +1,78 @@
+<div class="d-flex align-items-center justify-content-center">
+  <div class="h-100 p-4" style="background-color: #E5E1DD; border-radius: 10px;">
+    <div style="text-align: center;">
+      <img class="rounded-circle me-lg-2" src="assets/logo_01.png" alt="" style="height: 150px;">
+      <h2 class="mb-4">สมัครสมาชิก</h2>
+    </div>
+
+    <form>
+      <div class="mb-3">
+        <label for="name" class="form-label">ชื่อ-นามสกุล</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name">
+        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+        </div> -->
+      </div>
+      <div class="mb-3">
+        <label for="card_number_id" class="form-label">เลขบัตรประจําตัวประชาชน</label>
+        <input type="text" class="form-control" id="card_number_id" [(ngModel)]="card_number_id" name="card_number_id">
+      </div>
+      <div class="mb-3">
+        <label for="username" class="form-label">ชื่อผู้ใช้งาน</label>
+        <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">รหัสผ่าน</label>
+        <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password">
+      </div>
+      <label for="exampleCheck1" class="form-label">โปรดระบุสถานะความสัมพันธ์ของท่านที่มีต่อโรงพยาบาล</label>
+      <div class="mb-3 form-check">
+        <label>
+            <input type="radio" [(ngModel)]="userType" name="userType" class="form-check-input" value="0"> ผู้ป่วย/ผู้ใช้งานแอปพลิเคชัน/ผู้เข้าชมเว็บไซต์
+        </label><br>
+        <label>
+            <input type="radio" [(ngModel)]="userType" name="userType" class="form-check-input" value="1"> เจ้าหน้าที่/ผู้ปฏิบัติงาน
+        </label><br>
+        <label>
+            <input type="radio" [(ngModel)]="userType" name="userType" class="form-check-input" value="2"> ผู้สมัครงาน
+        </label><br>
+        <label>
+            <input type="radio" [(ngModel)]="userType" name="userType" class="form-check-input" value="3"> คู่สัญญา/ผู้รับเหมา
+        </label><br>
+        <label>
+            <input type="radio" [(ngModel)]="userType" name="userType" class="form-check-input" value="4"> ผู้ติดต่อ
+        </label><br>
+        <label>
+            <input type="radio" [(ngModel)]="userType" name="userType" class="form-check-input" value="5"> อื่น ๆ (โปรดระบุ)
+        </label>
+        <input type="text" [(ngModel)]="relation_detail" name="relation_detail" class="form-control" id="relation_detail">
+    </div>
+
+      <div class="mb-3">
+        <label for="phone" class="form-label">เบอร์โทรศัพท์ติดต่อ</label>
+        <input type="phone" [(ngModel)]="phone" name="phone" class="form-control" id="phone">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">อีเมล</label>
+        <input type="email" [(ngModel)]="email" name="email" class="form-control" id="email">
+      </div>
+      <div class="mb-3">
+        <p for="document_attach_1" class="form-text">ไฟล์แนบ สําเนาบัตรประจําตัวประชาชน (กรณีสัญชาติไทย) ไม่เกิน 500 k
+        </p>
+        <input class="form-control" type="file" id="document_attach_1" (change)="onFileSelected01($event)">
+
+      </div>
+      <div class="mb-3">
+        <p for="document_attach_2" class="form-text">ไฟล์แนบ สําเนาหนังสือเดินทาง (กรณีไม่มีสัญชาติไทย) 500 k
+        </p>
+        <input class="form-control" type="file" id="document_attach_1" (change)="onFileSelected02($event)">
+      </div>
+      <div class="mb-3">
+        <p for="document_attach_3" class="form-text">เอกสารประกอบการดําเนินการแทน
+          <br>(เฉพาะกรณียื่นคําร้องแทนเจ้าของข้อมูลส่วนบุคคล)
+        </p>
+        <input class="form-control" type="file" id="document_attach_1" (change)="onFileSelected03($event)">
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="submit()">สมัครสมาชิก</button>
+    </form>
+  </div>
+</div>

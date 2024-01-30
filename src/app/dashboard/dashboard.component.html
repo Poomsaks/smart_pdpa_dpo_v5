@@ -1,0 +1,40 @@
+<div class="container-fluid pt-4 px-4">
+  <div class="row g-4" *ngFor="let doc of document">
+      <div class="col-sm-6 col-xl-3">
+          <div class="d-flex align-items-center justify-content-between p-4 bg_new">
+              <i class="fa fa-chart-line fa-3x text-primary"></i>
+              <div class="ms-3">
+                  <p class="mb-2">เอกสารที่ส่ง</p>
+                  <h6 class="mb-0">{{ doc['submit'] }}</h6>
+              </div>
+          </div>
+      </div>
+      <div class="col-sm-6 col-xl-3">
+          <div class="d-flex align-items-center justify-content-between p-4 bg_new">
+              <i class="fa fa-chart-bar fa-3x text-primary"></i>
+              <div class="ms-3">
+                  <p class="mb-2">เอกสารที่อนุมัติ</p>
+                  <h6 class="mb-0">{{ doc['approve'] }}</h6>
+              </div>
+          </div>
+      </div>
+      <div class="col-sm-6 col-xl-3">
+          <div class="d-flex align-items-center justify-content-between p-4 bg_new">
+              <i class="fa fa-chart-area fa-3x text-primary"></i>
+              <div class="ms-3">
+                  <p class="mb-2">เอกสารที่ปฏิเสธ</p>
+                  <h6 class="mb-0">{{ doc['reject'] }}</h6>
+              </div>
+          </div>
+      </div>
+      <div class="col-sm-6 col-xl-3">
+          <div class="d-flex align-items-center justify-content-between p-4 bg_new">
+              <i class="fa fa-chart-pie fa-3x text-primary"></i>
+              <div class="ms-3">
+                  <p class="mb-2">เอกสารที่เสร็จสิ้น</p>
+                  <h6 class="mb-0">{{ doc['complete'] }}</h6>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
